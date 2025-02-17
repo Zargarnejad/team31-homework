@@ -28,9 +28,9 @@ buyingPrice = 1000000;
 
 volumeInMeters = houseWidth * houseHight * houseDepth;
 
-housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+houseEstimatedPrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 
-if (housePrice > buyingPrice) {
+if (houseEstimatedPrice > buyingPrice) {
   console.log("Congradulation Julia! you bought your house at good price.");
 } else if (housePrice < buyingPrice) {
   console.log("Sorry Julia! you paid too much!!!!!!!!!!");
