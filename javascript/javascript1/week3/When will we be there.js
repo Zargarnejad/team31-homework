@@ -13,6 +13,3 @@ function getArrivingTime(travelData) {
   const roundMinutes = Math.round(minutes);
   return hours + " hours and " + roundMinutes + " minutes. ";
 }
-
-//const travelTime = notThisFunctionName(travelInformation);
-//console.log(travelTime); // 8 hours and 38 minutes
