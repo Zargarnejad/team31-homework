@@ -3,13 +3,15 @@
 const activities = [];
 const limit = 100;
 
-function addActivity(date, activity, duration) {
-  activities.push({ date: date, activity: activity, duration: duration });
+function addActivity(activity, duration) {
+  let date = new Date();
+  let localdate = date.toLocaleDateString("en-GB");
+  activities.push({ date: localdate, activity: activity, duration: duration });
 }
-addActivity("18/2/2025", "Youtube", 30);
-addActivity("18/2/2025", "w3school", 60);
-addActivity("18/2/2025", "GitHub", 80);
-addActivity("18/2/2025", "Facebook", 25);
+addActivity("Youtube", 30);
+addActivity("w3school", 60);
+addActivity("GitHub", 80);
+addActivity("Facebook", 25);
 console.log(activities);
 
 // ****************** Show my status *****************
