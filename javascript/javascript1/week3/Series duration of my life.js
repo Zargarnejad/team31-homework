@@ -31,7 +31,7 @@ const seriesDurations = [
   },
 ];
 
-function getseriesDurations() {
+function logOutSeriesText() {
   let percentageOfLifepan = 0;
   for (i = 0; i < seriesDurations.length; i++) {
     const duration = seriesDurations[i];
@@ -49,4 +49,4 @@ function getseriesDurations() {
   );
 }
 
-getseriesDurations();
+logOutSeriesText();
