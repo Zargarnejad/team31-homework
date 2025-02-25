@@ -108,7 +108,7 @@ function getReply(command) {
   }
 
   // Add more command here
-
+  //1.Creat event anniversary to calender on 21-12-2025
   if (command.startsWith("Creat event")) {
     let words = command.split(" ");
     let eventTitle = words[2];
@@ -118,8 +118,8 @@ function getReply(command) {
 
     return `Event "${eventTitle}" created on ${date}`;
   }
-  if (command === "What is in my calender") {
+  //2.What is in my calendar
+  if (command === "What is in my calendar") {
     return events;
   }
 }
-
