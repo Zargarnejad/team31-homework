@@ -5,7 +5,7 @@ let todo = [];
 let events = [];
 
 function getReply(command) {
-  if (command.startsWith("Hello my name is")) {
+  if (command.toLowerCase().startsWith("hello my name is")) {
     let words = command.split(" ");
     newName = words[words.length - 1];
     if (userName === newName) {
@@ -18,7 +18,7 @@ function getReply(command) {
 
   // Ask uer's name
 
-  if (command === "what is my name") {
+  if (command.toLowerCase() === "what is my name") {
     if (userName != null) {
       return `your name is ${userName}`;
     } else {
@@ -28,7 +28,10 @@ function getReply(command) {
 
   // Add taske in todo list
 
-  if (command.startsWith("Add ") && command.endsWith("to my todo")) {
+  if (
+    command.toLowerCase().startsWith("add ") &&
+    command.endsWith("to my todo")
+  ) {
     let words = command.split(" ");
     let task = "";
     for (let i = 1; i < words.length - 3; i++) {
@@ -40,7 +43,10 @@ function getReply(command) {
 
   //  Find the task in the todo list and remove it
 
-  if (command.startsWith("Remove ") && command.endsWith("from my todo")) {
+  if (
+    command.toLowerCase().startsWith("remove ") &&
+    command.endsWith("from my todo")
+  ) {
     let words = command.split(" ");
     let removedTask = "";
     for (let i = 1; i < words.length - 3; i++) {
@@ -57,7 +63,7 @@ function getReply(command) {
 
   //  Find the task in the todo list and show it in the message
 
-  if (command === "What is on my todo?") {
+  if (command.toLowerCase() === "what is on my todo?") {
     if (todo.length > 0) {
       let taskName = [];
       for (let i = 0; i < todo.length; i++) {
@@ -69,7 +75,7 @@ function getReply(command) {
       return " Todo list is empty.";
     }
   }
-  if (command === "What day is it today?") {
+  if (command.toLowerCase() === "what day is it today?") {
     const today = new Date();
     const year = today.getFullYear();
     const month = today.toLocaleString("en-GB", { month: "long" });
@@ -79,7 +85,7 @@ function getReply(command) {
 
   // Simple math activity
 
-  if (command.startsWith("What is")) {
+  if (command.toLowerCase().startsWith("what is")) {
     let words = command.split(" ");
     let operant1 = words[2];
     let operant2 = words[4];
@@ -98,7 +104,7 @@ function getReply(command) {
 
   // Set a timer for ... min
 
-  if (command.startsWith("Set a timer for")) {
+  if (command.toLowerCase().startsWith("set a timer for")) {
     let words = command.split(" ");
     let timeSetTime = words[4];
     setTimeout(() => {
@@ -109,7 +115,7 @@ function getReply(command) {
 
   // Add more command here
   //1.Creat event anniversary to calender on 21-12-2025
-  if (command.startsWith("Creat event")) {
+  if (command.toLowerCase().startsWith("creat event")) {
     let words = command.split(" ");
     let eventTitle = words[2];
     let date = words[words.length - 1];
