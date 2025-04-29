@@ -141,32 +141,33 @@ GROUP BY month(task.created)
 
 -- *******************************************************************
 
--- Part 4: Creating a database
+-- Part 4: Creating a database (db: Yummy_ dish)
+-- yummy_dish_erd.png is entity relationship diagram 
 
-create database yummy_dish
+CREATE DATABASE yummy_dish
 
-Create table category (
-id int primary key, 
-name varchar(255)
+CREATE TABLE category (
+id int PRIMARY KEY, 
+name varchar(255) NOT NULL
 )
 
 CREATE TABLE recipe(
-id int primary key auto_increment,
-title varchar(255) not null, 
+id int PRIMARY KEY auto_increment,
+title varchar(255) NOT NULL, 
 deescription text,
 category_id int,
 FOREIGN KEY (category_id) REFERENCES category(id),
 cooking_time int
 )
 
- create table ingredient (
+ CREATE TABLE ingredient (
  id int primary key auto_increment,
- name varchar(255) not null, 
- price decimal(7,2) not null,
+ name varchar(255) NOT NULL, 
+ price decimal(7,2) NOT NULL,
  unit enum('cup','ts','gr','kg','ml')
  )
  
- create table recipe_ingredient(
+ CREATE TABLE recipe_ingredient(
  recipe_id int ,
  FOREIGN KEY (recipe_id) REFERENCES recipe(id),
  ingredient_id int, 
