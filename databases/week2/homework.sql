@@ -7,19 +7,19 @@ INSERT INTO task (id, title, description, created, updated, due_date, status_id)
  VALUES (default, 'Do homework for week2', 
  'This row is description for a new task in week2', 
  '2025-04-28 01:41:00',
-  '2025-04-30 14:00:00',
-   '2025-05-03 23:00:00',
-    2);
+ '2025-04-30 14:00:00',
+ '2025-05-03 23:00:00',
+  2);
 
 
 -- Change the title of a task
 
-UPDATE task 
-SET title = 'change the title of the task'
-WHERE title = 'Do homework for week2'
+ UPDATE task 
+ SET title = 'change the title of the task'
+ WHERE title = 'Do homework for week2'
 
 -- Change a task due date
-UPDATE task 
+ UPDATE task 
  SET due_date = '2025-05-05 23:00:00' 
  WHERE id = 36
 
@@ -34,14 +34,15 @@ UPDATE task
  WHERE id = 36
 
 -- Delete a task
-DELETE FROM task
-WHERE id = 36
+ DELETE FROM task
+ WHERE id = 36
 
 -- *******************************************************************
 
 -- Part 2: School database
 
--- Create a new database containing the following tables:
+-- Create a new database containing the following tables: 
+
 CREATE DATABASE school 
 
 -- Class: with the columns: id, name, begins (date), ends (date)
