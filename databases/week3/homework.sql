@@ -1,14 +1,53 @@
+-- **************************** create tables 
+create database mealsharing; 
+
+-- Meal
+CREATE TABLE Meal (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    location VARCHAR(255),
+    `when` DATETIME NOT NULL,
+    max_reservations INT,
+    price DECIMAL(7, 2),
+    created_date DATE DEFAULT CURRENT_DATE
+);
+
+-- Reservation
+CREATE TABLE Reservation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    number_of_guests INT NOT NULL,
+    meal_id INT,
+    created_date DATE DEFAULT CURRENT_DATE,
+    contact_phonenumber VARCHAR(20),
+    contact_name VARCHAR(255),
+    contact_email VARCHAR(255),
+    FOREIGN KEY (meal_id) REFERENCES Meal(id)
+);
+
+ -- Review
+CREATE TABLE Review (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    meal_id INT,
+    stars INT,
+    created_date DATE DEFAULT CURRENT_DATE,
+    FOREIGN KEY (meal_id) REFERENCES Meal(id)  
+);
+ 
+
 -- **************************** Meal
 -- Get all meals
 SELECT * 
 FROM Meal;
 
 -- Add a new meal
- INSERT INTO MEAL (id,title,description,location,time, max_reservations,price,created_date)
- VALUES(1,soup,'soup is a starter, a good choise for cold weather.','copenhagen',2025-06-06,5,20,2025-05-06);
+ INSERT INTO MEAL (id,title,description,location,`when`,reservations,price,created_date)
+ VALUES(1,'Soup','soup is a starter, a good choise for cold weather.','copenhagen','2025-06-06 11:00:00',5,20,2025-05-06);
 
 -- Get a meal with any id, fx 1
-SELECT title
+SELECT *
 FROM meal
 WHERE id = 1;
 
@@ -32,7 +71,7 @@ INSERT INTO reservation(id, number_of_guests,meal_id,created_date, contact_phone
 VALUES(1, 5, 1,'2025-05-06', 4567890, 'Anderson','anderson@gmail.com');
 
 -- Get a reservation with any id, fx 1
-SELECT contact_name 
+SELECT *
 FROM reservation
 WHERE id = 1;
 
@@ -56,7 +95,7 @@ FROM review;
 INSERT INTO review(id, title, description,meal_id,stars,created_date)
 VALUES(1,'Review for service','The customer service was great.', 1, 5, '2025-05-06')
 -- Get a review with any id, fx 1
-SELECT deescription
+SELECT *
 FROM review
 WHERE id = 1;
 
@@ -73,7 +112,8 @@ WHERE id = 1;
 
 -- Additional queries
 -- Now add a couple of different meals, reservations and reviews with different attributes. With those meals create the following queries
-INSERT INTO meal (id, title, description, location,time,max_reservations, price, created_date) 
+
+INSERT INTO meal (id, title, description, location,`when`,max_reservations, price, created_date) 
 VALUES(2, 'Italian Pasta Night', 'Delicious homemade pasta with wine', 'Rome', '2025-06-06 11:00:00' ,3, 25.00, '2024-01-10'),
       (3, 'Sushi Evening', 'Fresh sushi prepared by a Japanese chef', 'Tokyo', '2025-03-06 11:00:00',5, 40.00, '2024-02-15'),
       (4, 'BBQ Feast', 'Grilled meats and sides buffet style', 'Texas', '2025-04-06 11:00:00',4, 30.00, '2024-03-20');
@@ -90,10 +130,10 @@ VALUES(2, 'Great Pasta!', 'Loved the homemade taste.', 1, 5, '2024-01-12'),
 
 
 -- **************************** Functionality
--- Get meals that has a price smaller than a specific price fx 90
+-- Get meals that has a price smaller than a specific price fx 90 (I used my own data for queries)
 
 SELECT * FROM meal 
-WHERE price<30;
+WHERE price < 30;
 -- result : 
 	id	title	description	                                       location	    time	           max_reservations	price	created_date
 	1	soup	soup is a starter, a good choise for cold weather.	copenhagen	2025-06-06 11:00:00	5	            15.30	2025-04-06
@@ -123,7 +163,8 @@ FROM meal
 WHERE created_date > "2024-01-01" AND created_date < "2024-03-15"
 
 
--- Get only specific number of meals fx return only 5 meals
+-- Get only specific number of meals fx return only 5 meals 
+
 SELECT *
 FROM meal 
 limit 5
@@ -135,7 +176,7 @@ SELECT *
 FROM meal m
 JOIN review r
 ON m.id = r.meal_id
-and r.stars> 4
+and r.stars>= 4
 
 -- Get reservations for a specific meal sorted by created_date
 
