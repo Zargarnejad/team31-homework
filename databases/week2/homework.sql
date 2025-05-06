@@ -1,5 +1,7 @@
 
+
 -- Part 1: Working with tasks
+use hyf_lesson2;
 
 -- Add a task with these attributes: title, description, created, updated, due_date, status_id, user_id
 
@@ -16,26 +18,26 @@ INSERT INTO task (id, title, description, created, updated, due_date, status_id,
 
  UPDATE task 
  SET title = 'change the title of the task'
- WHERE title = 'Do homework for week2'
+ WHERE title = 'Do homework for week2';
 
 -- Change a task due date
  UPDATE task 
  SET due_date = '2025-05-05 23:00:00' 
- WHERE id = 36
+ WHERE id = 36;
 
 -- Change a task status
  UPDATE task 
  SET status_id = 1 
- WHERE id = 36
+ WHERE id = 36;
 
 -- Mark a task as complete
  UPDATE task 
  SET status_id = 3 
- WHERE id = 36
+ WHERE id = 36;
 
 -- Delete a task
  DELETE FROM task
- WHERE id = 36
+ WHERE id = 36;
 
 -- *******************************************************************
 
@@ -43,7 +45,8 @@ INSERT INTO task (id, title, description, created, updated, due_date, status_id,
 
 -- Create a new database containing the following tables: 
 
-CREATE DATABASE school 
+CREATE DATABASE school;
+use school;
 
 -- Class: with the columns: id, name, begins (date), ends (date)
 
@@ -52,7 +55,7 @@ id INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(255) NOT NULL,
 begins DATETIME, 
 ends DATETIME
-)
+);
 
 -- Student: with the columns: id, name, email, phone, class_id (foreign key)
 
@@ -63,7 +66,7 @@ email VARCHAR(255),
 phonE INT,
 class_id INT ,
 FOREIGN KEY (class_id) REFERENCES class (id)
-)
+);
 
 -- Create an index on the name column of the student table.
 
@@ -73,12 +76,14 @@ ON student (name);
 -- Add a new column to the class table named status which can only have the following values: not-started, ongoing, finished (hint: enumerations).
 
 ALTER TABLE class 
-ADD COLUMN status ENUM ('not-started', 'ongoing', 'finished')
+ADD COLUMN status ENUM ('not-started', 'ongoing', 'finished');
 
 
 -- *******************************************************************
 
 -- Part 3: More queries
+
+use hyf_lesson2;
 
 -- Get all the tasks assigned to users whose email ends in @spotify.com
 select title
@@ -107,7 +112,7 @@ SELECT title
  ON u.id = ut.user_id
  JOIN status s 
  ON t.status_id = s.id 
- WHERE u.name = 'Donald Duck' AND s.name = 'Not started'
+ WHERE u.name = 'Donald Duck' AND s.name = 'Not started';
 
 
 -- result:
@@ -123,7 +128,7 @@ JOIN user_task ut
 ON t.id = ut.task_id
 JOIN user u 
 ON u.id = ut.user_id
-WHERE u.name = 'Maryrose Meadows' AND t.created LIKE '%-09-%'
+WHERE u.name = 'Maryrose Meadows' AND t.created LIKE '%-09-%';
 
 --   result: 
 --   Buy gift for Paul
@@ -134,7 +139,7 @@ WHERE u.name = 'Maryrose Meadows' AND t.created LIKE '%-09-%'
 
 SELECT month(task.created),count(*)
 FROM task
-GROUP BY month(task.created)
+GROUP BY month(task.created);
 
 --  result:
 --  month 10 :	18 tasks
@@ -150,7 +155,7 @@ CREATE DATABASE yummy_dish
 CREATE TABLE category (
 id int PRIMARY KEY, 
 name varchar(255) NOT NULL
-)
+);
 
 CREATE TABLE recipe(
 id int PRIMARY KEY auto_increment,
@@ -159,20 +164,21 @@ deescription text,
 category_id int,
 FOREIGN KEY (category_id) REFERENCES category(id),
 cooking_time int
-)
+);
 
  CREATE TABLE ingredient (
  id int primary key auto_increment,
  name varchar(255) NOT NULL, 
  price decimal(7,2) NOT NULL,
  unit enum('cup','ts','gr','kg','ml')
- )
+ );
  
  CREATE TABLE recipe_ingredient(
  recipe_id int ,
  FOREIGN KEY (recipe_id) REFERENCES recipe(id),
  ingredient_id int, 
  FOREIGN KEY (ingredient_id) REFERENCES ingredient(id),
+ PRIMARY KEY (recipe_id, ingredient_id),
  amount decimal(7,2)
- )
+ );
 
