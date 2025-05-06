@@ -3,13 +3,13 @@
 
 -- Add a task with these attributes: title, description, created, updated, due_date, status_id, user_id
 
-INSERT INTO task (id, title, description, created, updated, due_date, status_id)
+INSERT INTO task (id, title, description, created, updated, due_date, status_id,user_id)
  VALUES (default, 'Do homework for week2', 
  'This row is description for a new task in week2', 
  '2025-04-28 01:41:00',
  '2025-04-30 14:00:00',
  '2025-05-03 23:00:00',
-  2);
+  2,10);
 
 
 -- Change the title of a task
