@@ -1,5 +1,6 @@
 -- **************************** create tables 
 create database mealsharing; 
+use mealsharing;
 
 -- Meal
 CREATE TABLE Meal (
@@ -144,30 +145,30 @@ WHERE price < 30;
 SELECT distinct m.*
  from meal m 
  join reservation r 
- on m.id = r.meal_id
+ on m.id = r.meal_id;
 
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 
 SELECT * 
 FROM meal 
-WHERE title LIKE "Italian%"
+WHERE title LIKE "Italian%";
 ---------------------------------
 SELECT * 
 FROM meal 
-WHERE title LIKE "%even%"
+WHERE title LIKE "%even%";
 
 -- Get meals that has been created between two dates
 
 SELECT *
 FROM meal 
-WHERE created_date > "2024-01-01" AND created_date < "2024-03-15"
+WHERE created_date > "2024-01-01" AND created_date < "2024-03-15";
 
 
 -- Get only specific number of meals fx return only 5 meals 
 
 SELECT *
 FROM meal 
-limit 5
+limit 5;
 
 
 -- Get the meals that have good reviews
@@ -176,7 +177,7 @@ SELECT *
 FROM meal m
 JOIN review r
 ON m.id = r.meal_id
-and r.stars>= 4
+and r.stars>= 4;
 
 -- Get reservations for a specific meal sorted by created_date
 
@@ -184,7 +185,7 @@ SELECT *
 FROM reservation r
 JOIN meal m 
 ON r.meal_id = m.id  and m.id = 1
-ORDER BY r.created_date desc
+ORDER BY r.created_date desc;
 
 -- Sort all meals by average number of stars in the reviews
 
