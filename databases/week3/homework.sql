@@ -32,7 +32,7 @@ CREATE TABLE Review (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     meal_id INT,
-    stars INT,
+    stars INT CHECK (stars >=1 AND stars <=5),
     created_date DATE DEFAULT CURRENT_DATE,
     FOREIGN KEY (meal_id) REFERENCES Meal(id)  
 );
@@ -136,9 +136,9 @@ VALUES(2, 'Great Pasta!', 'Loved the homemade taste.', 1, 5, '2024-01-12'),
 SELECT * FROM meal 
 WHERE price < 30;
 -- result : 
-	id	title	description	                                       location	    time	           max_reservations	price	created_date
-	1	soup	soup is a starter, a good choise for cold weather.	copenhagen	2025-06-06 11:00:00	5	            15.30	2025-04-06
-	2	Italian Pasta Night	Delicious homemade pasta with wine	    Rome	    2025-06-06 11:00:00	3	            25.00	2024-01-10
+	-- id	title	description	                                       location	    time	           max_reservations	price	created_date
+	-- 1	soup	soup is a starter, a good choise for cold weather.	copenhagen	2025-06-06 11:00:00	5	            15.30	2025-04-06
+	-- 2	Italian Pasta Night	Delicious homemade pasta with wine	    Rome	    2025-06-06 11:00:00	3	            25.00	2024-01-10
 								
 -- Get meals that still has available reservations
 
