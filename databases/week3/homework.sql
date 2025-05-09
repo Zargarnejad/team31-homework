@@ -44,7 +44,7 @@ SELECT *
 FROM Meal;
 
 -- Add a new meal
- INSERT INTO MEAL (id,title,description,location,`when`,reservations,price,created_date)
+ INSERT INTO MEAL (id,title,description,location,`when`,max_reservations,price,created_date)
  VALUES(1,'Soup','soup is a starter, a good choise for cold weather.','copenhagen','2025-06-06 11:00:00',5,20,2025-05-06);
 
 -- Get a meal with any id, fx 1
@@ -142,10 +142,16 @@ WHERE price < 30;
 								
 -- Get meals that still has available reservations
 
-SELECT distinct m.*
- from meal m 
- join reservation r 
- on m.id = r.meal_id;
+-- SELECT distinct m.*
+--  from meal m 
+--  join reservation r 
+--  on m.id = r.meal_id;
+
+SELECT Meal.* 
+FROM Meal 
+LEFT JOIN Reservation 
+ON Meal.id = Reservation.meal_id 
+GROUP BY Meal.id HAVING SUM(Reservation.number_of_guests) < Meal.max_reservations  OR SUM(Reservation.number_of_guests) IS NULL;
 
 -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
 
@@ -194,4 +200,4 @@ from meal m
 join review r 
 on m.id = r.meal_id
 group by m.title 
-order by avg(stars);
+order by avg_stars;
