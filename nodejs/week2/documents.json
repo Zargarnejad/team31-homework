@@ -1,0 +1,86 @@
+
+[
+  {
+    "id": 1,
+    "name": "Used Apple Airpods",
+    "price": "50",
+    "description": "Battery life is not great"
+  },
+  {
+    "id": 2,
+    "type": "doc",
+    "value": "hello world"
+  },
+  {
+    "id": 3,
+    "name": "Samsung Galaxy S9",
+    "price": "120",
+    "description": "Screen has minor scratches, works perfectly"
+  },
+  {
+    "id": 4,
+    "type": "doc",
+    "value": "meeting notes from May"
+  },
+  {
+    "id": 5,
+    "name": "Dell XPS 13 Laptop",
+    "price": "400",
+    "description": "8GB RAM, 256GB SSD, some keyboard wear"
+  },
+  {
+    "id": 6,
+    "type": "doc",
+    "value": "to-do: grocery, laundry, call John"
+  },
+  {
+    "id": 7,
+    "name": "Used Fitbit Charge 4",
+    "price": "35",
+    "description": "Good condition, includes original charger"
+  },
+  {
+    "id": 8,
+    "type": "doc",
+    "value": "draft blog post: productivity tips"
+  },
+  {
+    "id": 9,
+    "name": "Logitech MX Master Mouse",
+    "price": "45",
+    "description": "Like new, very lightly used"
+  },
+  {
+    "id": 10,
+    "type": "doc",
+    "value": "2024 goals and resolutions"
+  },
+  {
+    "id": 11,
+    "name": "Sony WH-1000XM3 Headphones",
+    "price": "150",
+    "description": "Excellent noise cancellation, includes case"
+  },
+  {
+    "id": 12,
+    "type": "doc",
+    "value": "code snippet: basic API call"
+  },
+  {
+    "id": 13,
+    "name": "Used Kindle Paperwhite",
+    "price": "70",
+    "description": "Screen in good condition, includes case"
+  },
+  {
+    "id": 14,
+    "type": "doc",
+    "value": "journal entry: travel to Japan"
+  },
+  {
+    "id": 15,
+    "name": "GoPro HERO8 Black",
+    "price": "180",
+    "description": "Includes accessories, works perfectly"
+  }
+]
