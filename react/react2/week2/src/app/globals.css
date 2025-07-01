@@ -52,11 +52,18 @@ button {
   font-size:large;
   font-weight: bold;
   cursor: pointer;
-  background-color: transparent;
+  background-color:transparent;
   border: 0.2rem solid rgb(208, 80, 80);
   border-radius:1rem;
   margin:0.5rem;
   
+}
+h1{
+  padding-bottom: 0.5rem;
+}
+h2{
+  color:rgb(50, 49, 49);
+  padding-bottom: 0.5rem;
 }
 
 /* Todo list css */

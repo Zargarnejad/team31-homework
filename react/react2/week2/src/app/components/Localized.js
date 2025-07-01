@@ -11,6 +11,7 @@ export default function LocalizedComponent() {
   return (
     <div className="container">
       <h1>{t.title}</h1>
+      <h2>{t.text}</h2>
       <button onClick={toggleLanguage}>{t.changeLanguage}</button>
       <button onClick={toggleTheme} style={{ marginRight: "10px" }}>
         {t.changeTheme}
