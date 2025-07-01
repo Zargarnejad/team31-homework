@@ -1,0 +1,130 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+
+.container {
+  padding-bottom: 2.5rem;
+  border-radius: 1rem;
+  margin:2rem 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+button {
+  padding: 1.5rem 2rem;
+  font-size:large;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0.2rem solid rgb(208, 80, 80);
+  border-radius:1rem;
+  margin:0.5rem;
+  
+}
+
+/* Todo list css */
+.todo-container {
+  max-width: 25%;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgb(171, 74, 74);
+  background: #ede9e9;
+  direction:ltr;
+  font-family: sans-serif;
+}
+
+.todo-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5 rem;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+}
+
+.todo-form button {
+  padding: 8px 16px;
+  background: #0acb24;
+  color: whitesmoke;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-list li span {
+  cursor: pointer;
+  flex: 1;
+}
+
+.todo-list li.done span {
+  text-decoration: line-through;
+  color:darkgreen;
+  font-weight: bold;
+  font-size: large;
+}
+
+.todo-list li button {
+  background: #ff5a5f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
