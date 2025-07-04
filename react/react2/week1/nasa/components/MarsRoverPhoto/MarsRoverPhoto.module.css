@@ -1,0 +1,19 @@
+.roverContainer {
+  padding: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  column-gap: 10rem;
+}
+
+.roverImage {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .roverContainer {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

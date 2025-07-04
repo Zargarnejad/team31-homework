@@ -1,0 +1,77 @@
+.siteNameContainer {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.siteName {
+  padding-left: 1rem;
+}
+.hamburgerMenuIcon {
+  width: 2rem;
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: salmon;
+  color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  align-items: center;
+  height: 3rem;
+}
+.navbarList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.navbarItem {
+  margin-left: 1rem;
+}
+.navbarLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+.navbarLink:hover {
+  color: navy;
+}
+.hidden {
+  display: none;
+}
+.mobileNavbar {
+  background-color: #fbd1cc;
+}
+.mobileNavbarList {
+  margin-top: 0;
+  padding-top: 1rem;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+.mobileNavbarItem {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.mobileNavbarLink {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+}
+
+@media only screen and (max-width: 700px) {
+  .navbarList {
+    display: none;
+  }
+  .hamburgerMenuIcon {
+    display: block;
+  }
+}
