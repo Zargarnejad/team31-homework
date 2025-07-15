@@ -1,5 +1,7 @@
 Tomato
 Avocado
-Carrots
+Cucumber
 Celery
 Corn
+Garlic
+Onions
