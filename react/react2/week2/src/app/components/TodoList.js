@@ -1,5 +1,5 @@
 "use client";
-import "../globals.css"
+import "../globals.css";
 import { useState } from "react";
 import { useTodos } from "../contexts/TodoContext";
 
@@ -8,8 +8,9 @@ export default function TodoList() {
   const [text, setText] = useState("");
 
   const addTodo = () => {
-    if (text.trim()) {
-      dispatch({ type: "ADD", text });
+    const trimmedText = text.trim();
+    if (trimmedText) {
+      dispatch({ type: "ADD", text: trimmedText });
       setText("");
     }
   };
